@@ -38,4 +38,14 @@ public class Test {
                 body("[0].city", equalTo("Austin"));
 
     }
+    @org.junit.Test
+    public void negativeTest1() {
+        when().
+                get(baseUrl + "/houses?price_gte=666000&price_lte=450000&city=Austin").
+                then().
+                statusCode(200).
+                body("size()", equalTo(0));
+
+
+    }
 }
